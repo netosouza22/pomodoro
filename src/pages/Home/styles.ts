@@ -4,17 +4,20 @@ export const HomeContainer = styled.main`
   font-family: 'Roboto', sans-serif;
   flex: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
-  form {
+  & > div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 3.5rem;
   }
+`
+
+export const ControllPomodoroContainer = styled.section`
+width: 100%;
 `
 
 export const BaseCountdownButton = styled.button`
