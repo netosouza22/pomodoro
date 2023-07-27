@@ -1,15 +1,14 @@
-import { differenceInSeconds } from 'date-fns'
 import { useEffect, useState } from 'react'
-import { useCycles } from '../../contexts/CycleContext'
+import { usePomodoroCycles } from '../../contexts/PomodoroCycleContext'
+import { modeLabel } from '../../utils/modeLabels'
 import { CountdownContainer } from './styles'
 
 const CountDown = () => {
-  const { activeCycle, markCycleAsFinished } = useCycles()
-
+  const { pomodoroCycle, activedCycle, switchMode, handleShortBreakEnd, handlePercentageRemaining } = usePomodoroCycles()
   const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
 
-  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
-  const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
+  const totalSeconds = pomodoroCycle ? pomodoroCycle[activedCycle] * 60 : 0
+  const currentSeconds = pomodoroCycle ? totalSeconds - amountSecondsPassed : 0
 
   const minutesAmount = String(Math.floor(currentSeconds / 60)).padStart(2, '0')
   const secondsAmount = String(currentSeconds % 60).padStart(2, '0')
@@ -17,32 +16,47 @@ const CountDown = () => {
   useEffect(() => {
     let interval: number
 
-    if (activeCycle) {
+    if (activedCycle) {
       interval = setInterval(() => {
-        const secondsDifference = differenceInSeconds(
-          new Date(),
-          activeCycle.startDate,
-        )
-
-        if (secondsDifference === totalSeconds) {
-          markCycleAsFinished()
-          return
+        if (pomodoroCycle.start) {
+          setAmountSecondsPassed(amountSecondsPassed + 1);
+          handlePercentageRemaining((100 * (amountSecondsPassed + 1)) / totalSeconds)
+        } else {
+          setAmountSecondsPassed(amountSecondsPassed)
         }
 
-        setAmountSecondsPassed(secondsDifference)
+        if (amountSecondsPassed === totalSeconds) {
+          if (activedCycle === "pomodoro") {
+            switchMode("shortBreak")
+          }
+
+          if (activedCycle === "shortBreak") {
+            handleShortBreakEnd()
+          }
+
+          if (activedCycle === "longBreak") {
+            switchMode("pomodoro")
+          }
+        }
+
       }, 1000)
     }
 
     return () => {
       clearInterval(interval)
     }
-  }, [activeCycle, markCycleAsFinished, totalSeconds])
+  }, [pomodoroCycle, activedCycle, amountSecondsPassed])
 
   useEffect(() => {
-    if (activeCycle) {
-      document.title = `${minutesAmount}:${secondsAmount}`
+    setAmountSecondsPassed(0)
+    handlePercentageRemaining(0);
+  }, [activedCycle])
+
+  useEffect(() => {
+    if (activedCycle) {
+      document.title = `${minutesAmount}:${secondsAmount} ${modeLabel[activedCycle]}`
     }
-  }, [activeCycle, minutesAmount, secondsAmount])
+  }, [activedCycle, minutesAmount, secondsAmount])
 
   return (
     <CountdownContainer>
