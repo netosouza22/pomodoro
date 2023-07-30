@@ -4,6 +4,7 @@ import { HandPalm, Play } from "@phosphor-icons/react";
 import CountDown from "../../components/CountDown";
 import { PomodoroCycleControls } from "../../components/PomodoroTab";
 import ProgressBar from "../../components/ProgressBar";
+import Tasks from "../../components/Tasks";
 import { usePomodoroCycles } from "../../contexts/PomodoroCycleContext";
 import {
   ControllPomodoroContainer,
@@ -37,7 +38,7 @@ export default function Home() {
         )}
       </div>
       <div>
-        asdas
+        <Tasks />
       </div>
     </HomeContainer>
   );

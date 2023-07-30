@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { Router } from './Route'
 
 import { PomodoroCycleProvider } from './contexts/PomodoroCycleContext'
+import { TaskProvider } from './contexts/TaskContext'
 import { GlobalStyles } from './styles/global'
 import { defaultTheme } from './styles/themes/default'
 
@@ -12,7 +13,9 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <PomodoroCycleProvider>
-          <Router />
+          <TaskProvider>
+            <Router />
+          </TaskProvider>
         </PomodoroCycleProvider>
       </BrowserRouter>
     </ThemeProvider>

@@ -17,6 +17,15 @@ interface ICycle {
   type: "pomodoro" | "short break" | "long break",
   task: string
   minutesAmount: number
+
+  shortBreak?: {
+    active: boolean;
+    minutesAmount: number;
+  }
+  longBreak?: {
+    active: boolean;
+    minutesAmount: number;
+  }
   startDate: Date
   interruptedDate?: Date
   finishedDate?: Date
@@ -48,6 +57,8 @@ export function CycleProvider({ children }: ICycleProvider) {
   const [cycleTypeActive, SetCycleTypeActive] = useState<ICycleTypeActive>({
     cycleType: "pomodoro"
   })
+
+  const [pomodoroCycles, setPomodoroCycles] = useState<ICycle[]>([])
   const [cycles, setCycles] = useState<ICycle[]>([])
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
   const activeCycle = cycles?.find((cycle) => cycle.id === activeCycleId)
@@ -96,6 +107,7 @@ export function CycleProvider({ children }: ICycleProvider) {
 
   const value = useMemo(() => {
     return {
+      pomodoroCycles,
       cycles,
       activeCycle,
       createCycle,
@@ -103,6 +115,7 @@ export function CycleProvider({ children }: ICycleProvider) {
       handleInterruptCounter,
     }
   }, [
+    pomodoroCycles,
     cycles,
     activeCycle,
     createCycle,

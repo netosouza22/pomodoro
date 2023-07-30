@@ -4,8 +4,9 @@ export const HomeContainer = styled.main`
   font-family: 'Roboto', sans-serif;
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
+  
 
   & > div {
     display: flex;

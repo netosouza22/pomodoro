@@ -8,10 +8,10 @@ import {
 } from 'react';
 
 const initialConfigTimer = {
-  pomodoro: 4,
-  shortBreak: 1,
-  longBreak: 2,
-  longBreakInterval: 1,
+  pomodoro: 25,
+  shortBreak: 5,
+  longBreak: 15,
+  longBreakInterval: 3,
 }
 
 interface ICycle {
@@ -46,10 +46,10 @@ export function PomodoroCycleProvider({ children }: IPomodoroCycleProvider) {
   const [activedCycle, setActivedCycle] = useState<CycleActiveModeType>("pomodoro")
   const [percentageTime, setPercentageTime] = useState<number>(0)
   const [pomodoroCycle, setPomodoroCycle] = useState<ICycle>({
-    pomodoro: 1,
-    shortBreak: 1,
-    longBreak: 1,
-    longBreakInterval: 1,
+    pomodoro: 25,
+    shortBreak: 5,
+    longBreak: 15,
+    longBreakInterval: 3,
     start: true,
   });
 
@@ -66,9 +66,7 @@ export function PomodoroCycleProvider({ children }: IPomodoroCycleProvider) {
   }, [])
 
   const handleShortBreakEnd = useCallback(() => {
-
     if (pomodoroCycle.longBreakInterval > 0) {
-      console.log('here')
       setPomodoroCycle((prevState) => ({ ...prevState, longBreakInterval: prevState.longBreakInterval - 1 }));
       setActivedCycle("pomodoro");
     } else {
