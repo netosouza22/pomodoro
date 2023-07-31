@@ -1,26 +1,28 @@
-import IgniteLogo from '../../assets/logo-ignite.svg'
-import { HeaderContainer } from './styles'
+import { useTask } from '../../contexts/TaskContext';
+import ProgressBar from '../ProgressBar';
+import { HeaderContainer } from './styles';
 
-import { Gear, Scroll, Timer } from '@phosphor-icons/react'
-import { NavLink } from 'react-router-dom'
 
 const Header = () => {
+
+  const { tasks } = useTask();
+
   return (
     <HeaderContainer>
       <span>
-        <img src={IgniteLogo} alt=""></img>
+        {tasks.length > 0 ? `#1 ${tasks[0].name}` : '# -  Sem atividades'}
       </span>
-      <nav>
-        <NavLink to="/" title="Timer">
-          <Timer size={24} />
-        </NavLink>
+      <ProgressBar />
+
+
+      {/* <nav>
         <NavLink to="/historico" title="histórico">
           <Scroll size={24} />
         </NavLink>
         <NavLink to="/configuracao" title="configuração">
           <Gear size={24} />
         </NavLink>
-      </nav>
+      </nav> */}
     </HeaderContainer>
   )
 }
