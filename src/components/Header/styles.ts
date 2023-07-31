@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  & > span {
+    font-weight: bold;
+    font-size: 3rem;
+  }
 
   nav {
     outline: none;

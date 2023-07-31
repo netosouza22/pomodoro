@@ -1,4 +1,4 @@
-import { Plus } from "@phosphor-icons/react";
+import { FloppyDisk } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 import { useTask } from "../../contexts/TaskContext";
 import { AddTaskButton, FormContainer } from "./styles";
@@ -31,7 +31,6 @@ export default function TaskForm() {
     }
   }, [error])
 
-
   return (
     <FormContainer inputError={error}>
       <input
@@ -43,7 +42,7 @@ export default function TaskForm() {
         onChange={(e) => handleTaskName(e)}
       />
       <AddTaskButton onClick={handleCreateTask}>
-        <Plus size={16} weight="bold" />
+        <FloppyDisk size={16} weight="bold" />
       </AddTaskButton>
     </FormContainer>
   )
