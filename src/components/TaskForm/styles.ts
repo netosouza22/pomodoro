@@ -27,7 +27,7 @@ export const FormContainer = styled.div<IFormContainer>`
     border: none;
 
     &:focus{
-      border: 3px solid ${(props) =>
+      border: 2px solid ${(props) =>
     props.inputError ? props.theme["red-500"] : props.theme["green-700"]};
     }
   }
