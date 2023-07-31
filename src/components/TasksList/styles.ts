@@ -5,6 +5,21 @@ interface ITaskInfo {
 }
 
 export const TaskListsContainer = styled.div`
+  height: 19.0625rem;
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      outline: 1px solid slategrey;
+    }
 
 `
 
@@ -17,12 +32,13 @@ export const Task = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  background-color: ${(props) => props.theme["gray-100"]};
+  background-color: ${(props) => props.theme["white"]};
   border-bottom: 1px solid ${(props) => props.theme["gray-300"]};
 `
 
 export const TaskInfo = styled.div<ITaskInfo>`
   display: flex;
+  align-items: center;
   gap: 0.75rem;
 
   color: ${(props) => props.isFinished ? props.theme["gray-500"] : props.theme["gray-700"]};
@@ -41,11 +57,28 @@ export const TaskInfo = styled.div<ITaskInfo>`
 `
 export const ButtonsContainer = styled.div`
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
 `
-export const FinishTaskButton = styled.button`
+export const StyledButton = styled.button`
+  height: 1.25rem;
+  width: 1.25rem;
   border: none;
 
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 0.75rem;
+
+  background-color: transparent;
+  cursor: pointer;
+
+  em {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
 `
