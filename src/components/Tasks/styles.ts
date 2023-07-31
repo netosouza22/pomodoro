@@ -1,16 +1,25 @@
 import styled from "styled-components";
 
+export const TaskListContainer = styled.div`
+  width: 24.0625rem;
+  height: 24.375rem;
+  margin-top: 1rem;
+
+  border-radius: 4px;
+  background: ${(props) => props.theme["gray-700"]};
+`
+
 export const AddTaskButton = styled.button`
-  width: 20px;
-  height: 20px;
-  border-radius: 2px;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.125rem;
 
   position: absolute;
 
-  right: 1rem;
+  right: 0.75rem;
   top: 0.5rem;
 
-  background: ${(props) => props.theme["gray-500"]};
+  background: ${(props) => props.theme["gray-100"]};
   opacity: 0.5;
 
   display: flex;
@@ -22,24 +31,16 @@ export const AddTaskButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: white;
+    background-color: ${(props) => props.theme["gray-500"]};
     opacity: 1;
   }
-`
-
-export const TaskListContainer = styled.div`
-  width: 385px;
-  height: 400px;
-
-  border-radius: 4px;
-  background: ${(props) => props.theme["gray-700"]};
-  box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, 0.10);
+  
 `
 
 export const TaskListHeader = styled.div`
   width: 100%;
-  padding: 10px 0px;
-  border-radius: 4px 4px 0px 0px;
+  padding: 0.625rem 0px;
+  border-radius: 0.25rem 0.25rem 0px 0px;
 
   position: relative;
 
