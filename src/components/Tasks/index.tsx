@@ -3,7 +3,7 @@ import { useState } from "react";
 import TaskForm from "../TaskForm";
 import TasksList from "../TasksList";
 
-import { CaretDown, CaretUp } from '@phosphor-icons/react';
+import { Minus, Plus } from '@phosphor-icons/react';
 
 import { AddTaskButton, TaskListContainer, TaskListHeader } from "./styles";
 
@@ -16,7 +16,7 @@ export default function Tasks() {
       <TaskListHeader>
         Tarefas
         <AddTaskButton onClick={() => setShowForm(state => !state)}>
-          {showForm ? <CaretUp weight="bold" /> : <CaretDown weight="bold" />}
+          {showForm ? <Minus weight="bold" /> : <Plus weight="bold" />}
         </AddTaskButton>
       </TaskListHeader>
 
