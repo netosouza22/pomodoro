@@ -20,7 +20,7 @@ export default function Home() {
     <HomeContainer>
       <div>
         <ControllPomodoroContainer>
-          <ProgressBar />
+
           <PomodoroCycleControls />
         </ControllPomodoroContainer>
         <CountDown />
