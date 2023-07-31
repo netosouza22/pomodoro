@@ -19,6 +19,8 @@ interface ITaskContext {
   tasks: ITask[]
   createTask: (name: string) => void;
   finishTask: (id: string) => void;
+  deleteTask: (id: string) => void;
+  priorizeTask: (index: number) => void;
 }
 interface ITaskProvider {
   children: ReactNode
@@ -51,19 +53,45 @@ export function TaskProvider({ children }: ITaskProvider) {
     })
 
     setTasks(updatedTask)
-  }, [])
+  }, [tasks])
+
+  const deleteTask = useCallback((id: string) => {
+    const deletedTask: ITask[] = tasks.filter((task) => {
+      if (task.id !== id) {
+        return task;
+      }
+    })
+
+    setTasks(deletedTask)
+  }, [tasks])
+
+  const priorizeTask = useCallback((index: number) => {
+    let copiedTasks: ITask[] = JSON.parse(JSON.stringify(tasks));
+    let savePreviousTask = copiedTasks[0];
+
+    if (copiedTasks[index].isFinished !== true) {
+      copiedTasks[0] = copiedTasks[index];
+      copiedTasks[index] = savePreviousTask;
+    }
+
+    setTasks(copiedTasks)
+  }, [tasks])
 
 
   const value = useMemo(() => {
     return {
       tasks,
       createTask,
-      finishTask
+      finishTask,
+      deleteTask,
+      priorizeTask
     }
   }, [
     tasks,
     createTask,
-    finishTask
+    finishTask,
+    deleteTask,
+    priorizeTask
   ])
 
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>
