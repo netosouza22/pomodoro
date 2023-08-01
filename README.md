@@ -14,14 +14,28 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 * Ter instalado a versão mais recente do Node js;
 
-## ☕ Usando timer
+## ☕ Usando Pomodoro
 
 Para usar timer:
 acesse
 [pomodoro](https://netosouza22.github.io/pomodoro/)
 
- > yarn install ou npm i para instalar os pacotes
- > yarn dev para iniciar o projeto
+Para instalar os projetos com o terminal aberto na pasta do projeto, digite:
+```
+yarn install
+```
+ou 
+```
+npm i
+```
+para iniciar o projeto:
+```
+yarn dev
+```
+ou
+```
+npm run dev
+```
 
 ## 🤝 Colaboradores
 
@@ -31,7 +45,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars3.githubusercontent.com/u/31936044" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/63481821" width="100px;" alt="Foto do Neto Sousa no GitHub"/><br>
         <sub>
           <b>Neto Sousa</b>
         </sub>
@@ -39,6 +53,12 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
   </tr>
 </table>
+
+## 🛠️ Tecnologias
+
+* [React Js](https://react.dev/)
+* [Styled Components](https://styled-components.com/)
+* [Phosphor Icons](https://phosphoricons.com/)
 
 ## 📝 Licença
 
