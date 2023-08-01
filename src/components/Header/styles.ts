@@ -1,9 +1,14 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
+interface IHeaderContainer {
+  isFinished: boolean;
+}
+
+export const HeaderContainer = styled.div<IHeaderContainer>`
   & > span {
     font-weight: bold;
     font-size: 3rem;
+    text-decoration: ${(props) => props.isFinished ? "line-through" : "none"};
   }
 
   nav {

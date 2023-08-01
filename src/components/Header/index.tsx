@@ -8,21 +8,11 @@ const Header = () => {
   const { tasks } = useTask();
 
   return (
-    <HeaderContainer>
+    <HeaderContainer isFinished={tasks.length > 0 && tasks[0].isFinished}>
       <span>
         {tasks.length > 0 ? `#1 ${tasks[0].name}` : '# -  Sem atividades'}
       </span>
       <ProgressBar />
-
-
-      {/* <nav>
-        <NavLink to="/historico" title="histórico">
-          <Scroll size={24} />
-        </NavLink>
-        <NavLink to="/configuracao" title="configuração">
-          <Gear size={24} />
-        </NavLink>
-      </nav> */}
     </HeaderContainer>
   )
 }
