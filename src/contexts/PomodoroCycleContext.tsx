@@ -7,6 +7,8 @@ import {
   useState
 } from 'react';
 
+import sound from '../assets/finish_beep.mp3';
+
 const initialConfigTimer = {
   pomodoro: 25,
   shortBreak: 5,
@@ -30,10 +32,11 @@ interface IPomodoroCycleContext {
   activedCycle: CycleActiveModeType,
   percentageTime: number,
   switchMode: (mode: CycleActiveModeType) => void,
-  startStopCycle: () => void,
+  startCycle: () => void,
   stopCycle: () => void,
   handleShortBreakEnd: () => void,
   handlePercentageRemaining: (value: number) => void
+  playAudio: () => void;
 }
 interface IPomodoroCycleProvider {
   children: ReactNode
@@ -50,11 +53,11 @@ export function PomodoroCycleProvider({ children }: IPomodoroCycleProvider) {
     shortBreak: 5,
     longBreak: 15,
     longBreakInterval: 3,
-    start: true,
+    start: false,
   });
 
-  const startStopCycle = useCallback(() => {
-    setPomodoroCycle((prevState) => ({ ...prevState, start: !prevState.start }))
+  const startCycle = useCallback(() => {
+    setPomodoroCycle((prevState) => ({ ...prevState, start: true }))
   }, [])
 
   const stopCycle = useCallback(() => {
@@ -62,21 +65,26 @@ export function PomodoroCycleProvider({ children }: IPomodoroCycleProvider) {
   }, [])
 
   const switchMode = useCallback((mode: CycleActiveModeType) => {
-    setActivedCycle(mode)
+    playAudio();
+    setActivedCycle(mode);
   }, [])
 
   const handleShortBreakEnd = useCallback(() => {
     if (pomodoroCycle.longBreakInterval > 0) {
       setPomodoroCycle((prevState) => ({ ...prevState, longBreakInterval: prevState.longBreakInterval - 1 }));
-      setActivedCycle("pomodoro");
+      switchMode("pomodoro");
     } else {
-      setActivedCycle("longBreak")
       setPomodoroCycle((prevState) => ({ ...prevState, longBreakInterval: 1 }));
+      switchMode("longBreak")
     }
   }, [pomodoroCycle])
 
   const handlePercentageRemaining = useCallback((value: number) => {
     setPercentageTime(value)
+  }, [])
+
+  const playAudio = useCallback(() => {
+    new Audio(sound).play()
   }, [])
 
   const value = useMemo(() => {
@@ -85,20 +93,22 @@ export function PomodoroCycleProvider({ children }: IPomodoroCycleProvider) {
       activedCycle,
       percentageTime,
       switchMode,
-      startStopCycle,
+      startCycle,
       stopCycle,
       handleShortBreakEnd,
       handlePercentageRemaining,
+      playAudio
     }
   }, [
     pomodoroCycle,
     activedCycle,
     percentageTime,
     switchMode,
-    startStopCycle,
+    startCycle,
     stopCycle,
     handleShortBreakEnd,
-    handlePercentageRemaining
+    handlePercentageRemaining,
+    playAudio
   ])
 
   return <PomodoroCycleContext.Provider value={value}>{children}</PomodoroCycleContext.Provider>
