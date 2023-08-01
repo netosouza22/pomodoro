@@ -3,10 +3,9 @@ import { device } from '../../utils/breakpoints'
 
 export const LayoutContainer = styled.div`
   max-width: 74rem;
-
-
+  
   margin: 0vh auto;
-  padding: 2.5rem;
+  padding: 1.5rem;
 
   background-color: ${({ theme }) => theme['gray-800']};
   border-radius: 8px;
@@ -18,6 +17,7 @@ export const LayoutContainer = styled.div`
 
   @media ${device.tablet} {
     margin: 5vh auto;
+    padding: 2.5rem;
 
     min-height: calc(100vh - 10vh);
   }
