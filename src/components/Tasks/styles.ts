@@ -1,12 +1,19 @@
 import styled from "styled-components";
+import { device } from "../../utils/breakpoints";
 
 export const TaskListContainer = styled.div`
-  width: 24.0625rem;
+
+  max-width: 21.0625rem;
+
   height: 24.375rem;
   margin-top: 1rem;
 
   border-radius: 4px;
   background: ${(props) => props.theme["gray-700"]};
+
+  @media ${device} {
+    width: 24.0625rem;
+  }
 `
 
 export const AddTaskButton = styled.button`

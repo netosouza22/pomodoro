@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../utils/breakpoints';
 
 interface IHeaderContainer {
   isFinished: boolean;
@@ -7,7 +8,7 @@ interface IHeaderContainer {
 export const HeaderContainer = styled.div<IHeaderContainer>`
   & > span {
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 1.5rem;
     text-decoration: ${(props) => props.isFinished ? "line-through" : "none"};
   }
 
@@ -37,5 +38,11 @@ export const HeaderContainer = styled.div<IHeaderContainer>`
         color: ${({ theme }) => theme['green-500']};
       }
     }
+  }
+
+  @media ${device.tablet} {
+    & > span {
+    font-size: 3rem;
+  }
   }
 `

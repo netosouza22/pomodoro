@@ -20,7 +20,7 @@ export const HomeContainer = styled.main`
 
     display: flex;
     align-items: start;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
 
     & > div {
@@ -34,9 +34,9 @@ width: 100%;
 `
 
 export const BaseCountdownButton = styled.button`
-  width: 100%;
+
   border: 0;
-  padding: 1rem;
+  padding: 1rem 4rem;
   border-radius: 8px;
 
   display: flex;
@@ -55,6 +55,11 @@ export const BaseCountdownButton = styled.button`
 
   &:not(:disabled):hover {
     background: ${({ theme }) => theme['green-700']};
+  }
+
+  @media ${device.laptop} {
+    width: 100%;
+    padding: 1rem;
   }
 `
 

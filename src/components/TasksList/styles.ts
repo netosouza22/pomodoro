@@ -41,7 +41,7 @@ export const TaskInfo = styled.div<ITaskInfo>`
   align-items: center;
   gap: 0.75rem;
 
-  color: ${(props) => props.isFinished ? props.theme["gray-500"] : props.theme["gray-700"]};
+  color: ${(props) => props.isFinished ? props.theme["gray-500"] : props.theme["gray-600"]};
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 600;
