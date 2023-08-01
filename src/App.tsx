@@ -11,7 +11,7 @@ function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyles />
-      <BrowserRouter>
+      <BrowserRouter basename='/pomodoro/'>
         <PomodoroCycleProvider>
           <TaskProvider>
             <Router />
