@@ -4,7 +4,7 @@ import { modeLabel } from '../../utils/modeLabels'
 import { CountdownContainer } from './styles'
 
 const CountDown = () => {
-  const { pomodoroCycle, activedCycle, switchMode, handleShortBreakEnd, handlePercentageRemaining } = usePomodoroCycles()
+  const { pomodoroCycle, activedCycle, switchMode, handleShortBreakEnd, handlePercentageRemaining, playAudio } = usePomodoroCycles()
   const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
 
   const totalSeconds = pomodoroCycle ? pomodoroCycle[activedCycle] * 60 : 0
@@ -27,14 +27,17 @@ const CountDown = () => {
 
         if (amountSecondsPassed === totalSeconds) {
           if (activedCycle === "pomodoro") {
+            // playAudio()
             switchMode("shortBreak")
           }
 
           if (activedCycle === "shortBreak") {
+            // playAudio()
             handleShortBreakEnd()
           }
 
           if (activedCycle === "longBreak") {
+            // playAudio()
             switchMode("pomodoro")
           }
         }
