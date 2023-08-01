@@ -3,7 +3,6 @@ import { HandPalm, Play } from "@phosphor-icons/react";
 
 import CountDown from "../../components/CountDown";
 import { PomodoroCycleControls } from "../../components/PomodoroTab";
-import ProgressBar from "../../components/ProgressBar";
 import Tasks from "../../components/Tasks";
 import { usePomodoroCycles } from "../../contexts/PomodoroCycleContext";
 import {
@@ -14,7 +13,7 @@ import {
 } from "./styles";
 
 export default function Home() {
-  const { pomodoroCycle, startStopCycle } = usePomodoroCycles()
+  const { pomodoroCycle, startCycle, stopCycle } = usePomodoroCycles()
 
   return (
     <HomeContainer>
@@ -26,12 +25,12 @@ export default function Home() {
         <CountDown />
 
         {pomodoroCycle.start ? (
-          <StopCountdownButton onClick={startStopCycle}>
+          <StopCountdownButton onClick={stopCycle}>
             <HandPalm />
-            Interromper
+            Pausar
           </StopCountdownButton>
         ) : (
-          <StartCountdownButton onClick={startStopCycle}>
+          <StartCountdownButton onClick={startCycle}>
             <Play />
             Começar
           </StartCountdownButton>
