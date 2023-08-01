@@ -1,12 +1,13 @@
 import styled from 'styled-components'
+import { device } from '../../utils/breakpoints'
 
 export const HomeContainer = styled.main`
   font-family: 'Roboto', sans-serif;
   flex: 1;
   display: flex;
   align-items: start;
-  justify-content: space-between;
-  
+  justify-content: center;
+  flex-wrap: wrap;
 
   & > div {
     display: flex;
@@ -14,6 +15,10 @@ export const HomeContainer = styled.main`
     justify-content: space-between;
     align-items: center;
     gap: 3.5rem;
+  }
+
+  @media ${device.laptop} {
+    justify-content: space-between;
   }
 `
 
