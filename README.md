@@ -14,18 +14,11 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 * Ter instalado a versão mais recente do Node js;
 
-## 🚀 Instalando o Pomodoro
-
-Para instalar o pomodro, siga estas etapas:
-
-Windows:
-```
-<comando_de_instalação>
-```
-
 ## ☕ Usando timer
 
-Para usar timer, siga estas etapas:
+Para usar timer:
+acesse
+[pomodoro](https://netosouza22.github.io/pomodoro/)
 
  > yarn install ou npm i para instalar os pacotes
  > yarn dev para iniciar o projeto
