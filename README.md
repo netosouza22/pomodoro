@@ -1,4 +1,4 @@
-# Timer
+# Pomodoro
 
 <img src=".repository/assets/project_img.png" alt="Exemplo imagem">
 
