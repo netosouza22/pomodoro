@@ -1,23 +1,22 @@
 # Timer
 
-<img src=".repository/project_img.png" alt="Exemplo imagem">
+<img src=".repository/assets/project_img.png" alt="Exemplo imagem">
 
-> Projeto feito na trilha de react da Rocketseat, utilizando React Js + typescript, cujo a intenção é criar um timer para execução de tarefas, você insere a tarefa e o tempo para executar ela, podendo interrompê-la. O sistema conta também com um histórico das tarefas.
+> Projeto feito baseado no projeto da trilha da Rocketseat(um timer), e agora utilizando React Js + typescript foi feito um sistema que executa a técnica pomodoro, é possível também adicionar tarefas a serem concluidas durante a técnica pomodoro. O usuário pode:
+> * Criar uma tarefa;
+> * Excluir uma tarefa;
+> * Concluir uma tarefa;
+> * Priorizar tarefa
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-* Você instalou a versão mais recente de Node
+* Ter instalado a versão mais recente do Node js;
 
-## 🚀 Instalando Timer
+## 🚀 Instalando o Pomodoro
 
-Para instalar o timer, siga estas etapas:
-
-Linux e macOS:
-```
-<comando_de_instalação>
-```
+Para instalar o pomodro, siga estas etapas:
 
 Windows:
 ```
