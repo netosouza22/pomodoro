@@ -1,41 +1,41 @@
-# Timer
+# Pomodoro
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+<img src=".repository/assets/project_img.png" alt="Exemplo imagem">
 
-<img src="imagem.png" alt="Exemplo imagem">
-
-> Projeto feito na trilha de react da Rocketseat, utilizando React Js + typescript, cujo a intenção é criar um timer para execução de tarefas, você insere a tarefa e o tempo para executar ela, podendo interrompê-la. O sistema conta também com um histórico das tarefas.
+> Projeto feito baseado no projeto da trilha da Rocketseat(um timer), e agora utilizando React Js + typescript foi feito um sistema que executa a técnica pomodoro, é possível também adicionar tarefas a serem concluidas durante a técnica pomodoro. O usuário pode:
+> * Criar uma tarefa;
+> * Excluir uma tarefa;
+> * Concluir uma tarefa;
+> * Priorizar tarefa
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-* Você instalou a versão mais recente de Node
+* Ter instalado a versão mais recente do Node js;
 
-## 🚀 Instalando Timer
+## ☕ Usando Pomodoro
 
-Para instalar o timer, siga estas etapas:
+Para usar timer:
+acesse
+[pomodoro](https://netosouza22.github.io/pomodoro/)
 
-Linux e macOS:
+Para instalar os projetos com o terminal aberto na pasta do projeto, digite:
 ```
-<comando_de_instalação>
+yarn install
 ```
-
-Windows:
+ou 
 ```
-<comando_de_instalação>
+npm i
 ```
-
-## ☕ Usando timer
-
-Para usar timer, siga estas etapas:
-
- > yarn install ou npm i para instalar os pacotes
- > yarn dev para iniciar o projeto
+para iniciar o projeto:
+```
+yarn dev
+```
+ou
+```
+npm run dev
+```
 
 ## 🤝 Colaboradores
 
@@ -45,7 +45,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars3.githubusercontent.com/u/31936044" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/63481821" width="100px;" alt="Foto do Neto Sousa no GitHub"/><br>
         <sub>
           <b>Neto Sousa</b>
         </sub>
@@ -53,6 +53,12 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
   </tr>
 </table>
+
+## 🛠️ Tecnologias
+
+* [React Js](https://react.dev/)
+* [Styled Components](https://styled-components.com/)
+* [Phosphor Icons](https://phosphoricons.com/)
 
 ## 📝 Licença
 
